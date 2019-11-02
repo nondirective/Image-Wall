@@ -17,4 +17,5 @@ public interface UserMapper {
 	List<User> getUserByTimeInterval(Map<String,Object> map);
 	List<User> getAllUser();
 	void insertUser(User user);
+	void updateLastLoginTimeByUsername(String username);
 }

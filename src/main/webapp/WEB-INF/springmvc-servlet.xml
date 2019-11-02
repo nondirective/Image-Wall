@@ -18,4 +18,24 @@
 		<property name="suffix" value=".jsp"></property>
 		<property name="prefix" value="/WEB-INF/pages/"></property>
 	</bean>
+	
+		<!-- 文件上传bean -->
+	<bean name="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="defaultEncoding" value="utf-8"></property>
+		<property name="resolveLazily" value="true" />
+	</bean>
+	
+	
+<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	<!--传到映射视图的异常对象参数,value值为该参数的访问名-->
+    <property name="exceptionAttribute" value="ex"/>
+    
+    <property name="exceptionMappings">
+    	<props>
+            <!--key为处理的异常的全类名，value值为映射的视图-->
+        	<prop key="org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededException">fileSizeOutOfBound</prop>
+        </props>
+    </property>
+</bean>
 </beans>

@@ -31,13 +31,14 @@ public class UserService {
 		userMapper.insertUser(user);
 	}
 
-	public User loginUserr(String username, String password)throws UsernameNotExistsException,PasswordMismatchException {
+	public User loginUser(String username, String password)throws UsernameNotExistsException,PasswordMismatchException {
 		if(userMapper.getIdByUsername(username)==null)
 			throw new UsernameNotExistsException();
 		
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
+		userMapper.updateLastLoginTimeByUsername(username);
 		user = userMapper.usernameMatchPassword(user);
 		if(user.getId()==null) 
 			throw new PasswordMismatchException();

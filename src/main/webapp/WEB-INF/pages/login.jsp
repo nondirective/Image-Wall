@@ -7,6 +7,7 @@
 <title>登录</title>
 </head>
 <body>
+
 	<form action="/imagewall/login" method="post">
 		<table>
 			<tr>

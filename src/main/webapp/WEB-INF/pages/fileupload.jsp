@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>${msg }</h2>
-<%
-response.setHeader("refresh", "2;URL=/imagewall/index");
-%>
-
+<form action="/imagewall/imageUpload" enctype="multipart/form-data" method="post">
+    <input type="file" name="files" multiple="multiple"/>
+    <input type="submit"/>
+</form>
+<p>${msg_fileupload }</p>
 </body>
 </html>

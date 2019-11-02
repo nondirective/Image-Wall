@@ -84,7 +84,7 @@ public class registController {
 			return "forward:/registPage";
 		}
 		
-		map.put("suc_msg","注册成功");
+		map.put("msg","注册成功");
 
 		return "success";
 	}
