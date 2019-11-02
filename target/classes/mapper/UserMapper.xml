@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nondirectional.imagewall.dao.UserMapper">
+	<select id="getUserByOne" resultType="user">
+		SELECT * FROM t_user WHERE
+		<choose>
+			<when test="username!=null">username=#{username}</when>
+			<when test="id!=null">id=#{id}</when>
+		</choose>
+	</select>
+	
+	<select id="getIdByUsername" resultType="int">
+		SELECT id FROM t_user
+		WHERE username=#{username}
+	</select>
+	<select id="usernameMatchPassword" resultType="user">
+		SELECT *
+		FROM t_user
+		WHERE username=#{username} AND password=#{password} 
+	</select>
+	<select id="getUserByTimeInterval">
+		SELECT * FROM t_user WHERE
+		<choose>
+			<when test="registTimeStart!=null">
+				regist_time BETWEEN #{registTimeStart} AND
+				#{registTimeEnd}
+			</when>
+			<when test="lastLoginTimeStart!=null">
+				last_login_time BETWEEN #{lastLoginTimeStart} AND
+				#{lastLoginTimeStart}
+			</when>
+		</choose>
+	</select>
+
+	<select id="getUserByTimeAfter" resultType="user">
+		SELECT * FROM t_user WHERE
+		<choose>
+			<when test="registTimeIndex!=null">
+				regist_time&gt;#{registTimeIndex}
+			</when>
+			<when test="lastLoginTimeIndex!=null">
+				last_login_time&gt;#{lastLoginTimeIndex}
+			</when>
+		</choose>
+	</select>
+
+	<select id="getUserByTimeBefore" resultType="user">
+		SELECT * FROM t_user WHERE
+		<choose>
+			<when test="registTimeIndex!=null">
+				regist_time&lt;#{registTimeIndex}
+			</when>
+			<when test="lastLoginTimeIndex!=null">
+				last_login_time&lt;#{lastLoginTimeIndex}
+			</when>
+		</choose>
+	</select>
+	
+	<select id="getAllUser" resultType="User">
+		SELECT * FROM t_user
+	</select>
+	
+	<insert id="insertUser">
+		INSERT INTO 
+			t_user(username,password,secondry_password,regist_time) 
+		VALUES
+			(#{username},#{password},#{secondryPassword},#{registTime})
+	</insert>
+	
+</mapper>
