@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nondirectional.imagewall.dao.ImageMapper">
+	<insert id="insertImage">
+	<!-- 
+	upload_time
+	upload_user
+	parent_group
+	image_url
+	is_video -->
+		INSERT INTO
+			t_image(image_url,upload_user,parent_group,upload_time,is_video) 
+		VALUES
+			(#{imageUrl},#{uploadUser},#{parentGroup},#{uploadTime},#{isViedeo)
+	</insert>
+</mapper>

@@ -21,4 +21,12 @@ if(session.getAttribute("user")!=null){
 <a href="/imagewall/loginPage">登录</a>
 <a href="/imagewall/logout">注销</a>
 </body>
+
+<a href="/imagewall/imageGroupView?${照片组id }">
+	测试照片组
+</a>
+
+<a href="/imagewall/createImageGroupPage">
+	创建照片组
+</a>
 </html>
