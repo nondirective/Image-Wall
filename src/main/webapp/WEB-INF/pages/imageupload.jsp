@@ -9,15 +9,16 @@
 </head>
 <body>
 <%
-	if(session.getAttribute("user")==null){
+	User user = (User)session.getAttribute("user");
+	if(user==null){
 		request.getRequestDispatcher("/WEB-INF/pages/unlogin.jsp").forward(request, response);
 	}
-	pageContext.setAttribute("userId",(User)session.getAttribute("user")).getId();
+	Integer userId = user.getId();
 	
 %>
 <form action="/imagewall/imageUpload" enctype="multipart/form-data" method="post">
-	<input type="hidden" name="userId" value="${page.userId }"/>
-	<input type="hidden" name="parentGroup" value="${request.imageGroup }"/>
+	<input type="hidden" name="userId" value="${userId }"/>
+	<input type="hidden" name="parentGroup" value="${groupId }"/>
     <input type="file" name="files" multiple="multiple"/>
     <input type="submit"/>
 </form>

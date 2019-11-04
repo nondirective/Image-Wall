@@ -10,6 +10,13 @@ public class ImageGroup {
 	private Date createTime;
 	private Integer createUser;
 	private String groupName;
+	public ImageGroup(String groupName, Integer userId, String description) {
+		this.groupName = groupName;
+		this.createUser = userId;
+		this.description = description;
+	}
+	
+	public ImageGroup() {}
 	public Integer getId() {
 		return id;
 	}

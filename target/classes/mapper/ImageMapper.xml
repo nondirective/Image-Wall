@@ -13,6 +13,6 @@
 		INSERT INTO
 			t_image(image_url,upload_user,parent_group,upload_time,is_video) 
 		VALUES
-			(#{imageUrl},#{uploadUser},#{parentGroup},#{uploadTime},#{isViedeo)
+			(#{imageUrl},#{uploadUser},#{parentGroup},#{uploadTime},#{isVideo})
 	</insert>
 </mapper>

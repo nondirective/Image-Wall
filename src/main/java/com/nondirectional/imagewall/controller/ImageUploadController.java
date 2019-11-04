@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,8 +27,9 @@ public class ImageUploadController {
 	@Autowired
 	ImageService imageService;
 	
-	@RequestMapping("/imageUploadPage")
-	public String testFileUpload() {
+	@RequestMapping("/imageUploadPage/{groupId}")
+	public String testFileUpload(@PathVariable("groupId")Integer groupId,Map<String,Object>map) {
+		map.put("groupId",groupId);
 		return "imageupload";
 	}
 
@@ -81,6 +83,6 @@ public class ImageUploadController {
 			imageService.publishImage(new Image(relativePath, to.getUserId(), to.getParentGroup(), contentType.equals(".jpg") ? false : true));
 		}
 		
-		return "redirect:/imageGroupView?groupId="+to.getParentGroup();
+		return "redirect:/imageGroupView/"+to.getParentGroup();
 	}
 }

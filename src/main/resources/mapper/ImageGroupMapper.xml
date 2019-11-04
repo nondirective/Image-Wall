@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nondirectional.imagewall.dao.ImageGroupMapper">
+
+	<insert id="insertImageGroup" useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO t_image_group(group_name,description,create_user,create_time)
+		VALUES(#{groupName},#{description},#{createUser},#{createTime})
+	</insert>
+	
+	<select id="selectImageGroupById" resultType="imageGroup">
+		SELECT *
+		FROM t_image_group
+		WHERE id=${groupId}
+	</select>
+</mapper>

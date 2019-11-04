@@ -38,12 +38,11 @@ public class UserService {
 		User user = new User();
 		user.setUsername(username);
 		user.setPassword(password);
-		userMapper.updateLastLoginTimeByUsername(username);
 		user = userMapper.usernameMatchPassword(user);
 		if(user.getId()==null) 
 			throw new PasswordMismatchException();
-		else
-			return user;
+		userMapper.updateLastLoginTimeByUsername(username);
+		return user;
 		
 	}
 	

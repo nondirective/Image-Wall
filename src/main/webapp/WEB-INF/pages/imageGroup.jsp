@@ -10,12 +10,14 @@
 	* 	-名称
 	*   -封面图url
 	*/
+	
 %>
 <title></title>
 </head>
 <body>
-	<a href="/imagewall/imageUploadPage?imageGroup=${request.groupId }">
-	<button value="上传图片"></button>
+	<p>当前照片组：${imageGroup.groupName }</p>
+	<a href="/imagewall/imageUploadPage/${imageGroup.id }">
+	<button>上传图片</button>
 	</a>
 
 </body>

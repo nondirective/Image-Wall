@@ -1,9 +1,11 @@
 package com.nondirectional.imagewall.to;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotEmpty;
 
 public class CreateImageGroupTransportObject {
-	@NotEmpty(message="UNLOGIN")
+	@NotNull(message="UNLOGIN")
 	private Integer userId;
 	@NotEmpty(message="GROUP_NAME_EMPTY")
 	private String groupName;

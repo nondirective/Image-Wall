@@ -68,7 +68,7 @@
 		VALUES
 			(#{username},#{password},#{secondryPassword},#{registTime})
 	</insert>
-	<update id="updateLastLoginTimeById">
+	<update id="updateLastLoginTimeByUsername">
 		UPDATE t_user 
 		SET last_login_time=NOW()
 		WHERE username=#{username}

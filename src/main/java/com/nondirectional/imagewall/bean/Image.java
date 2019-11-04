@@ -13,6 +13,8 @@ public class Image {
 	private Integer uploadUser;
 	private Integer parentGroup;
 	
+	public Image(){}
+	
 	public Image(String relativePath, Integer userId, Integer parentGroup,Boolean isVideo) {
 		this.imageUrl = relativePath;
 		this.uploadUser = userId;

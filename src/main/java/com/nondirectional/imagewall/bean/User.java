@@ -25,7 +25,10 @@ public class User {
 	private String secondryPassword;
 	private Integer wealth;
 	private ArrayList<Integer> manageGroup;
-
+	
+	public User() {}
+	
+	
 	public Integer getId() {
 		return id;
 	}
